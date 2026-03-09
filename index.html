@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)file:///C:/Users/Karla%20Lopez/Downloads/Locaciones_Interactivo.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Diversidad de Locaciones — Panamá Film Commission</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0C0E15;font-family:'Trebuchet MS',sans-serif;min-height:100vh;display:flex;flex-direction:column;}
+.gold-grad{background:linear-gradient(90deg,#8B6914 0%,#D4AF37 30%,#FFD700 55%,#E8C346 75%,#B48C28 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.header{padding:16px 28px 10px;border-bottom:3px solid transparent;border-image:linear-gradient(90deg,#8B6914,#FFD700,#B48C28) 1;}
+.header-tag{font-size:9px;letter-spacing:3px;color:#0ABFBC;text-transform:uppercase;margin-bottom:3px;}
+.header-title{font-size:26px;font-weight:900;letter-spacing:5px;text-transform:uppercase;}
+.header-sub{font-size:12px;font-style:italic;color:#EDE9E0;font-family:Georgia,serif;margin-top:3px;}
+.tabs{display:flex;gap:7px;padding:12px 28px;background:#141720;flex-wrap:wrap;border-bottom:2px solid #1E2230;}
+.tab-btn{padding:7px 14px;background:#0C0E15;border:1.5px solid #C9A84C;color:#C9A84C;font-size:10.5px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all 0.2s;text-transform:uppercase;border-radius:2px;font-family:'Trebuchet MS',sans-serif;}
+.tab-btn:hover{background:#C9A84C22;transform:translateY(-1px);box-shadow:0 3px 10px #C9A84C44;}
+.tab-btn.active{background:linear-gradient(90deg,#8B6914,#FFD700,#B48C28);color:#080A0F;border-color:transparent;box-shadow:0 3px 14px #FFD70066;}
+.content{flex:1;display:flex;min-height:310px;}
+.photo-panel{position:relative;flex:1.6;overflow:hidden;background:#080A0F;}
+.photo-panel img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity 0.45s ease,transform 0.5s ease;}
+.photo-overlay{position:absolute;bottom:0;left:0;right:0;padding:18px 22px;background:linear-gradient(transparent,rgba(8,10,15,0.9));}
+.photo-title{font-size:18px;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:3px;}
+.photo-desc{font-size:11px;color:#B0B8C8;font-style:italic;font-family:Georgia,serif;}
+.btn-wrap{position:absolute;top:12px;right:12px;display:flex;flex-direction:column;gap:5px;}
+.action-btn{background:rgba(8,10,15,0.88);border:1.5px solid #C9A84C;color:#C9A84C;font-size:9.5px;font-weight:700;padding:6px 11px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;font-family:'Trebuchet MS',sans-serif;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.action-btn:hover{background:#C9A84C33;box-shadow:0 2px 8px #C9A84C55;}
+.upload-input{display:none;}
+.info-panel{flex:1;background:#141720;padding:20px 20px;display:flex;flex-direction:column;gap:12px;border-left:3px solid #1E2230;}
+.info-label{font-size:8px;letter-spacing:3px;color:#0ABFBC;text-transform:uppercase;margin-bottom:2px;}
+.info-desc{font-size:12px;color:#EDE9E0;line-height:1.6;font-family:Georgia,serif;}
+.info-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:3px;}
+.info-tag{background:#0C0E15;border:1px solid #2A2F3E;color:#6B7280;font-size:8.5px;padding:3px 9px;border-radius:2px;letter-spacing:1px;text-transform:uppercase;}
+.divider{height:1px;background:linear-gradient(90deg,transparent,#C9A84C55,transparent);}
+.stat-row{display:flex;gap:8px;}
+.stat-box{flex:1;background:#0C0E15;border:1px solid #1E2230;padding:8px 6px;text-align:center;}
+.stat-num{font-size:16px;font-weight:900;}
+.stat-label{font-size:8px;color:#6B7280;letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
+.bottom-bar{height:34px;background:linear-gradient(90deg,#8B6914,#FFD700,#E8C346,#B48C28);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#080A0F;letter-spacing:2px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-tag">01 — Diversidad de Locaciones · Geografía</div>
+  <div class="header-title gold-grad">DIVERSIDAD DE LOCACIONES</div>
+  <div class="header-sub">Un país. Infinitas posibilidades cinematográficas.</div>
+</div>
+<div class="tabs">
+  <button class="tab-btn" onclick="showLoc(&#39;ciudad_moderna&#39;,this)">Ciudad Moderna</button>
+  <button class="tab-btn active" onclick="showLoc(&#39;ciudad_colonial&#39;,this)">Ciudad Colonial</button>
+  <button class="tab-btn" onclick="showLoc(&#39;selvas_rios&#39;,this)">Selvas &amp; Ríos</button>
+  <button class="tab-btn" onclick="showLoc(&#39;dos_oceanos&#39;,this)">Dos Océanos</button>
+  <button class="tab-btn" onclick="showLoc(&#39;islas&#39;,this)">Islas</button>
+  <button class="tab-btn" onclick="showLoc(&#39;indigenas&#39;,this)">Com. Indígenas</button>
+  <button class="tab-btn" onclick="showLoc(&#39;canal&#39;,this)">El Canal</button>
+</div>
+<div class="content">
+  <div class="photo-panel">
+    <img id="mainPhoto" src="Ciudad Colonial.png" alt="Locación" style="opacity: 1; transform: scale(1);">
+    <div class="photo-overlay">
+      <div class="photo-title gold-grad" id="photoTitle">Ciudad Colonial</div>
+      <div class="photo-desc" id="photoDesc">Casco Antiguo — Patrimonio de la Humanidad UNESCO</div>
+    </div>
+    <div class="btn-wrap">
+      <button class="action-btn" onclick="triggerUpload()">📁 Cambiar Foto</button>
+      <button class="action-btn" onclick="resetPhoto()">↩ Original</button>
+    </div>
+    <input type="file" id="photoUpload" class="upload-input" accept="image/*" onchange="loadPhoto(event)">
+  </div>
+  <div class="info-panel">
+    <div>
+      <div class="info-label">Descripción</div>
+      <div class="info-desc" id="infoDesc">El Casco Viejo de Panamá es Patrimonio de la Humanidad con arquitectura colonial española del siglo XVII. Icónico escenario de James Bond en Quantum of Solace (2008).</div>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <div class="info-label">Ideal para</div>
+      <div class="info-tags" id="infoTags"><span class="info-tag">Histórico</span><span class="info-tag">Drama de Época</span><span class="info-tag">Aventura</span><span class="info-tag">Espionaje</span></div>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <div class="info-label">Destacados</div>
+      <div class="info-desc" id="infoExtra" style="font-size:11px;color:#B0B8C8;">Plaza de Francia · Iglesia de San José · Calles empedradas coloniales</div>
+    </div>
+    <div class="stat-row" id="statRow"><div class="stat-box"><div class="stat-num gold-grad">UNESCO</div><div class="stat-label">Patrimonio</div></div><div class="stat-box"><div class="stat-num gold-grad">1673</div><div class="stat-label">Fundación</div></div></div>
+  </div>
+</div>
+<div class="bottom-bar">Comisión Fílmica de Panamá &nbsp;·&nbsp; filmpanama@mici.gob.pa</div>
+<script>
+const DATA = {}
+
+Object.assign(DATA, {
+  ciudad_moderna: {
+    src: "Ciudad moderna.jpg",
+    title: "Ciudad Moderna",
+    desc: "Skyline urbano y arquitectura contemporánea",
+    info: "Rascacielos, vías amplias y locaciones corporativas modernas en Ciudad de Panamá.",
+    extra: "Costa del Este · Punta Pacífica · Cinta Costera",
+    tags: ["Urbano", "Acción", "Thriller", "Comercial"],
+    stats: [{ n: "24/7", l: "Actividad" }, { n: "HD", l: "Servicios" }]
+  },
+  ciudad_colonial: {
+    src: "Ciudad Colonial.png",
+    title: "Ciudad Colonial",
+    desc: "Casco Antiguo — Patrimonio de la Humanidad UNESCO",
+    info: "El Casco Viejo de Panamá es Patrimonio de la Humanidad con arquitectura colonial española del siglo XVII. Icónico escenario de James Bond en Quantum of Solace (2008).",
+    extra: "Plaza de Francia · Iglesia de San José · Calles empedradas coloniales",
+    tags: ["Histórico", "Drama de Época", "Aventura", "Espionaje"],
+    stats: [{ n: "UNESCO", l: "Patrimonio" }, { n: "1673", l: "Fundación" }]
+  },
+  selvas_rios: {
+    src: "Selva y rios.png",
+    title: "Selvas & Ríos",
+    desc: "Verde tropical, ríos y cascadas",
+    info: "Bosques tropicales y ríos caudalosos ideales para aventuras, exploración y naturaleza.",
+    extra: "Senderos · Cascadas · Puentes colgantes",
+    tags: ["Naturaleza", "Aventura", "Supervivencia", "Documental"],
+    stats: [{ n: "TROP", l: "Clima" }, { n: "VERDE", l: "Paisaje" }]
+  },
+  dos_oceanos: {
+    src: "Dos oceanos.png",
+    title: "Dos Océanos",
+    desc: "Pacífico y Atlántico en un solo país",
+    info: "Playas, costas y miradores para historias marítimas y escenas de viaje.",
+    extra: "Amaneceres · Atardeceres · Acantilados",
+    tags: ["Mar", "Road Movie", "Romance", "Acción"],
+    stats: [{ n: "2", l: "Océanos" }, { n: "COSTA", l: "Variedad" }]
+  },
+  islas: {
+    src: "Islas.png",
+    title: "Islas",
+    desc: "Archipiélagos y playas de película",
+    info: "Islas con arenas blancas y aguas cristalinas para producciones tropicales.",
+    extra: "Snorkel · Manglares · Botes",
+    tags: ["Tropical", "Aventura", "Comercial", "Lifestyle"],
+    stats: [{ n: "AZUL", l: "Agua" }, { n: "ARENA", l: "Playas" }]
+  },
+  indigenas: {
+    src: "comunidad Indigena.png",
+    title: "Com. Indígenas",
+    desc: "Culturas vivas y tradiciones ancestrales",
+    info: "Comunidades indígenas con identidad cultural única (siempre con coordinación y permisos).",
+    extra: "Artesanías · Rituales · Arquitectura tradicional",
+    tags: ["Cultura", "Etnográfico", "Documental", "Historia"],
+    stats: [{ n: "VIVA", l: "Tradición" }, { n: "LOCAL", l: "Autenticidad" }]
+  },
+  canal: {
+    src: "El Canal.png",
+    title: "El Canal",
+    desc: "Ingeniería icónica y tránsito mundial",
+    info: "El Canal de Panamá: esclusas, barcos y paisajes industriales únicos para escenas épicas.",
+    extra: "Esclusas · Miradores · Centro de visitantes",
+    tags: ["Ingeniería", "Industria", "Historia", "Acción"],
+    stats: [{ n: "1914", l: "Apertura" }, { n: "GLOBAL", l: "Ruta" }]
+  }
+});
+
+let current = 'ciudad_colonial';
+const customs = {};
+
+function showLoc(key, btn) {
+  current = key;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const d = DATA[key];
+  const img = document.getElementById('mainPhoto');
+  img.style.opacity = '0';
+  img.style.transform = 'scale(1.03)';
+  setTimeout(() => {
+    img.src = customs[key] || d.src;
+    img.style.opacity = '1';
+    img.style.transform = 'scale(1)';
+  }, 220);
+  document.getElementById('photoTitle').textContent = d.title;
+  document.getElementById('photoDesc').textContent = d.desc;
+  document.getElementById('infoDesc').textContent = d.info;
+  document.getElementById('infoExtra').textContent = d.extra;
+  document.getElementById('infoTags').innerHTML = d.tags.map(t => `<span class="info-tag">${t}</span>`).join('');
+  document.getElementById('statRow').innerHTML = d.stats.map(s => `<div class="stat-box"><div class="stat-num gold-grad">${s.n}</div><div class="stat-label">${s.l}</div></div>`).join('');
+}
+
+function triggerUpload() {
+  document.getElementById('photoUpload').click();
+}
+
+function loadPhoto(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    customs[current] = e.target.result;
+    const img = document.getElementById('mainPhoto');
+    img.style.opacity = '0';
+    setTimeout(() => { img.src = e.target.result; img.style.opacity = '1'; }, 200);
+  };
+  reader.readAsDataURL(file);
+  event.target.value = '';
+}
+
+function resetPhoto() {
+  delete customs[current];
+  const img = document.getElementById('mainPhoto');
+  img.style.opacity = '0';
+  setTimeout(() => { img.src = DATA[current].src; img.style.opacity = '1'; }, 200);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const activeBtn = document.querySelector('.tab-btn.active') || document.querySelector('.tab-btn');
+  if (activeBtn) showLoc(current, activeBtn);
+});
+</script>
+
+
+</body></html>
